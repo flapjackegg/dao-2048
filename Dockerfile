@@ -7,7 +7,7 @@ MAINTAINER Golfen Guo <golfen.guo@daocloud.io>
 COPY . /usr/share/nginx/html
 
 EXPOSE 4000
-EXPOSE 80
+
 RUN mv /usr/share/nginx/html/default.conf /etc/nginx/conf.d/
 # Start Nginx and keep it running background and start php
 CMD sed -i "s/ContainerID: /ContainerID: "$(hostname)"/g" /usr/share/nginx/html/index.html &&\
