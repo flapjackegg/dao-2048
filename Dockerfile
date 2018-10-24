@@ -8,9 +8,7 @@ COPY . /usr/share/nginx/html
 
 EXPOSE 4000
 EXPOSE 80
-
+RUN mv /usr/share/nginx/html/default.conf /etc/nginx/conf.d/
 # Start Nginx and keep it running background and start php
 CMD sed -i "s/ContainerID: /ContainerID: "$(hostname)"/g" /usr/share/nginx/html/index.html &&\
-	   	nginx -g "daemon off;" &&\
-	   	sed -i '0,/title/ s/80/4000/' /etc/nginx/conf.d/default.conf &&\
-		nginx -s reload
+	   	nginx -g "daemon off;"
