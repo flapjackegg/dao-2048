@@ -1,0 +1,8 @@
+stages:
+- name: build
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: 2048-demov1
+timeout: 60
